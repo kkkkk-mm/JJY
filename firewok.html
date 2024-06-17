@@ -10,7 +10,12 @@
 	</head>
 	<body>
 		<!-- partial:index.partial.html -->
-		<h1 id="title">Joy, Rich, Endless Happiness!</h1>
+		
+    <div class="text-container">
+      <div class="textBox">
+        <span>Joy, Rich, Endless Happiness.</span>
+      </div>
+    </div>
 		<div class="stars"></div>
 		<svg class="mountains mountains--layer1" xmlns="http://www.w3.org/2000/svg" width="1920" height="200"
 			viewBox="0 0 1920 200" preserveAspectRatio="none">
@@ -29,6 +34,8 @@
 		<script src='https://cdn.jsdelivr.net/mojs/latest/mo.min.js'></script>
 		<script src="./script.js"></script>
  
+    <audio src="/Users/qhr/Desktop/JJY/music/Sharman Rock - Hanabi (23秒慢速版片段).mp3" rel="external nofollow"  id="aud" autoplay="autoplay" controls="controls" preload="auto"></audio>
+
 	</body>
 </html>
 
@@ -90,15 +97,43 @@ html, body {
     transform: rotate(360deg);
   }
 }
-h1 {
-  font-size: calc(1.5em + 5vw);
-  color: #fff;
+
+.text-container {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-size: calc(1.3em + 2.1vw);
   font-family: "Caveat", sans-serif;
   text-align: center;
   padding: 0.5em;
-  transform: rotate(-4deg) translateY(-15vh);
-}
- 
+  transform: rotate(-6deg) translateY(-13vh);
+      } 
+.textBox {
+min-width: 2000px;
+height: 100px;
+word-wrap:inherit;
+      }
+.textBox span {
+       font-size: calc(1.3em + 2.1vw);
+        color: transparent;
+        background-image: linear-gradient(to right, #fff, #fff, #fff);
+        background-repeat: no-repeat;
+        -webkit-background-clip: text;
+        background-size: 100% 100%;
+        animation: bg 5s linear;
+        position: relative;
+      }
+      @keyframes bg {
+        0% {
+          background-size: 0% 100%;
+        }
+        100% {
+          background-size: 100% 90%;
+        }
+      }
+
+
 .mountains {
   position: absolute;
   bottom: 0;
@@ -118,12 +153,29 @@ h1 {
   fill: #9D5189;
   z-index: 0;
 }
+
+audio {
+    display: none;
+}
+
 </style>
 
 
 
 
-<script>
+<script type="text/javascript">
+  // 控制BGM
+  window.onload = function(){
+    setInterval("toggleSound()",1);
+  }
+ 
+function toggleSound() {
+  var music = document.getElementById("aud"); 
+  if (music.paused) { 
+    music.paused=false;
+    music.play(); 
+  }    
+}
 
 // Create the bursts
 const B_CHILD = {
@@ -269,7 +321,7 @@ const fw2 = new mojs.Shape({
  
 // Underline under title
 const underline = new mojs.Shape({
-  parent: document.getElementById('title'),
+  parent: document.getElementById('h1'),
   shape: 'curve',
   strokeLinecap: 'round',
   fill: 'none',
@@ -282,8 +334,8 @@ const underline = new mojs.Shape({
   radiusY: 10,
   y: '1.1em',
   angle: -10,
-  duration: 2000,
-  delay: 1000 }).
+  duration: 3000,
+  delay: 1200 }).
 then({
   strokeWidth: { '5em': '1em' },
   strokeDashoffset: { '100%': '-200%' },
@@ -304,7 +356,14 @@ add([fw1, fw2]).
 play();
  
 // Create sounds
-// var explosion = new Audio("https://www.freesound.org/data/previews/21/21410_21830-lq.mp3"); // buffers automatically when created
+// var explosion = new Audio("/Users/qhr/Desktop/JJY/music/Sharman Rock - Hanabi (23秒慢速版片段).mp3"); // buffers automatically when created
 // explosion.play();
+
+ 
+ 
+// button
+ 
+
+
 
 </script>
