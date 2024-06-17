@@ -78,7 +78,10 @@
   <a href="/Users/qhr/Desktop/JJY/firewok.html">
     <div class="box1" >许愿</div>
   </a>
-  <div class="box2">戳<br>咩</div>
+
+<button onclick="showImage()">戳<br>咩</button>
+<img id="joker" src="/Users/qhr/Desktop/JJY/photo/0334bd330d5e8b917eed2c2984316476.gif" style="display: none;">
+
   <a href="#" onclick="javascript:history.back(-1);"></a>
   <a href="#" onclick="javascript:history.go(-1);"></a>
 
@@ -149,8 +152,7 @@
     span {
       position: fixed;
       text-align: left;
-      margin: 30% 80% 90% 10%;
-      
+      margin: 30% 80% 90% 5%;  
       top: 30px;
       font-size: 150px;
     }
@@ -162,8 +164,16 @@
       right: 0%;
       top: 380px;
       width: 350px;
+    }
 
 
+    img.joker {
+      position: fixed;
+      text-align: right;
+      margin-right: 45% 80% 90% 10%;
+      width: 40px;
+      height: 40px;
+      top: 345px;
     }
 
     div.box1 {
@@ -186,17 +196,18 @@
 
     }
 
-    div.box2 {
+    button {
       border: 1px;
-      width: 50px;
-      height: 30px;
-      font-size: 20px;
+      width: 25px;
+      height: 50px;
+      font-size: 15px;
+      background-color: #d6c9eb;
       color: #931f36;
+      border-radius: 10%;
       position: relative;
       bottom: -200px;
-      top: 345px;
+      top: 360px;
       margin-right: 140px;
-    
       float: right;
       vertical-align: right;
       text-align: right;
@@ -1333,7 +1344,11 @@
 </style>
 
 
+
+
+
 <script type="text/javascript">
+  // 控制BGM
   window.onload = function(){
     setInterval("toggleSound()",1);
   }
@@ -1345,4 +1360,11 @@ function toggleSound() {
     music.play(); 
   }    
 }
+
+//控制按钮
+function showImage() {
+document.getElementById('joker').src = '/Users/qhr/Desktop/JJY/photo/0334bd330d5e8b917eed2c2984316476.gif'; //替换your_image_path.jpg为你保存图片的路径
+document.getElementById('joker').style.display = 'block';
+}
+
 </script>
