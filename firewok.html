@@ -121,7 +121,7 @@ word-wrap:inherit;
         background-repeat: no-repeat;
         -webkit-background-clip: text;
         background-size: 100% 100%;
-        animation: bg 5s linear;
+        animation: bg 20s linear;
         position: relative;
       }
       @keyframes bg {
@@ -287,7 +287,7 @@ const FW_OPTS = {
   stroke: '#ffffff',
   strokeDasharray: '100%',
   strokeDashoffset: { '-100%': '100%' },
-  duration: 1000 };
+  duration: 2000 };
  
 const fw1 = new mojs.Shape({
   ...FW_OPTS,
@@ -321,7 +321,7 @@ const fw2 = new mojs.Shape({
  
 // Underline under title
 const underline = new mojs.Shape({
-  parent: document.getElementById('h1'),
+  parent: document.getElementById('text-container'),
   shape: 'curve',
   strokeLinecap: 'round',
   fill: 'none',
@@ -334,13 +334,13 @@ const underline = new mojs.Shape({
   radiusY: 10,
   y: '1.1em',
   angle: -10,
-  duration: 3000,
-  delay: 1200 }).
+  duration: 25000,
+  delay: 500 }).
 then({
   strokeWidth: { '5em': '1em' },
   strokeDashoffset: { '100%': '-200%' },
-  duration: 2000,
-  delay: 10000 });
+  duration: 5000,
+  delay: 100000 });
  
 const timelineText = new mojs.Timeline({
   repeat: 2018 }).
